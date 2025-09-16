@@ -615,7 +615,7 @@ library
     ##         TRUE
     ##     else invisible(.packages())
     ## }
-    ## <bytecode: 0x000001623e246bd0>
+    ## <bytecode: 0x0000020cad270bd0>
     ## <environment: namespace:base>
 
 ``` r
@@ -1020,3 +1020,9 @@ pups_readr
     ##  9 #5/5/3/83/3-3 1                      5       14      6        9      
     ## 10 #5/4/2/95/2   1                      .       14      5        9      
     ## # ℹ 306 more rows
+
+\##exporting data export the mlb sub_table
+
+``` r
+write_csv(mlb_df, "./data/mlb_subtable.csv")
+```

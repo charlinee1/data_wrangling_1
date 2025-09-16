@@ -67,6 +67,11 @@ View(pups_readr)
 pups_base
 pups_readr
 ```
+##exporting data
+export the mlb sub_table
+```{r}
+write_csv(mlb_df, "./data/mlb_subtable.csv")
+```
 
 
 
