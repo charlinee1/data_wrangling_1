@@ -5,6 +5,8 @@ output: github_document
 
 ```{r setup}
 library(tidyverse)
+library(readxl)
+library(haven)
 ```
 
 ##Read some data
@@ -38,6 +40,18 @@ litters_df =
 check out `?read_csv` for more information
 
 
+## read excel file
 
+```{r}
+library
+mlb_df = read_excel("./data/mlb11.xlsx", rang= "A1:f7")
+mlb_df
+```
+
+## read sas file
+```{r}
+pulse_df = read_sas("./data/public_pulse_data.sas7bdat")
+pulse_df
+```
 
 
