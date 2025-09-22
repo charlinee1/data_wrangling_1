@@ -8,8 +8,11 @@ library(tidyverse)
 ```
 
 ```{r}
-litters_df = read_csv("data/FAS_litters.csv")
-litters_df= janitor::clean_names(litters_df)
+
+litters_df = 
+    read_csv("./data/FAS_litters.csv", na = c("NA", ".", ""))
+litters_df = 
+    janitor::clean_names(litters_df)
 ```
 ## `select`
 Choose some columns not others
@@ -55,6 +58,18 @@ filter(litters_df, group=="Mod8")
 
 ```{r}
 filter(litters_df, group %in% c("Con8", "Mod8"))
+```
+## `mutate`
+```{r}
+mutate(litters_df,
+  wt_gain = gd18_weight-gd_of_birth,
+  group = str_to_lower(group))
+```
+
+```{r}
+
+
+
 ```
 
 
