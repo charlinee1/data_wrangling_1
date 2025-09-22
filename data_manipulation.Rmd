@@ -76,5 +76,28 @@ arrange(litters_df, pups_born_alive)
 
 
 ```
+## pipe `%/%`
+
+```{r}
+
+litters_dataraw = read.csv("./data/FAS_litters.csv")
+litters_clean = janitor::clean_names(litters_dataraw)
+litters_select= select(litters_clean, -pups_survive)
+litters_mutate <= (litters_select, wt_gain=gd18_weight-gd0_weight)
+litters_dropmissing=drop_na(litters_select)
+```
+
+
+```{r pipe}
+litters_df=
+  read.csv("./data/FAS_litters.csv") %>% 
+  janitor::clean_names() %>% 
+select(-pups_survive) %>% 
+  mutate=(wt_gain= GD18.weight - GD0.weight) 
+```
+  select(-pups_survive) %>% 
+  mutate=(wt_gain= gd18_weight - gd0_weight) %>% 
+  drop_na(wt_gain)
+
 
 
