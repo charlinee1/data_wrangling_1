@@ -11,5 +11,31 @@ library(tidyverse)
 litters_df = read_csv("data/FAS_litters.csv")
 litters_df= janitor::clean_names(litters_df)
 ```
+## `select`
+Choose some columns not others
+```{r}
+select(litters_df, group, litter_number)
+```
+```{r}
+select(litters_df, group, gd0_weight:gd_of_birth)
+```
+```{r delete litter_number}
+select(litters_df, -litter_number)
+```
+renaming
+```{r}
+select(litters_df, GROUP=group, LITTER_NUMBER=litter_number)
+```
+```{r}
+rename(litters_df, GROUP=group, LITTER_NUMBER=litter_number)
+```
+```{r}
+select(litters_df, starts_with("gd"))
+```
 
-
+```{r}
+select(litters_df, litter_number, everything())
+```
+```{r}
+relocate(litters_df, litter_number)
+```
