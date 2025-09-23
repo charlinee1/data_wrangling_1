@@ -101,7 +101,28 @@ lotr_tidy=
 
 
 
+## join datasets
+join two datasets that have some variables overlap
+import the sas datasets.
+```{r}
+pup_df = 
+  read_csv(
+    "./data/FAS_pups.csv",
+    na = c("NA", "", ".")) |>
+  janitor::clean_names() |>
+  mutate(
+    sex = 
+      case_match(
+        sex, 
+        1 ~ "male", 
+        2 ~ "female"),
+    sex = as.factor(sex)) 
 
+litters_df=
+  read.csv("./data/FAS_litters.csv",
+           na = c("NA", "", ".")) 
+  
+```
 
 
 
