@@ -93,7 +93,7 @@ litters_df=
   read.csv("./data/FAS_litters.csv") %>% 
   janitor::clean_names() %>% 
 select(-pups_survive) %>% 
-  mutate=(wt_gain= GD18.weight - GD0.weight) 
+  mutate=(wt_gain= gd18_weight - gd0_weight) 
 ```
   select(-pups_survive) %>% 
   mutate=(wt_gain= gd18_weight - gd0_weight) %>% 
