@@ -8,3 +8,44 @@ date: "2025-09-23"
 library(tidyverse)
 ```
 
+## `pivot_longer data`
+
+load pulse data
+
+```{r}
+pulse_df = 
+  haven::read_sas("./data/public_pulse_data.sas7bdat") |>
+  janitor::clean_names()
+pulse_df
+```
+wide format to long format...
+
+```{r}
+pulse_tidy_df = 
+  pivot_longer(
+    pulse_df, 
+    bdi_score_bl:bdi_score_12m,
+    names_to = "visit", 
+    values_to = "bdi")
+```
+
+rewrite, combine and add a mutate 
+```{r}
+pulse_df = 
+  haven::read_sas("./data/public_pulse_data.sas7bdat") |>
+  janitor::clean_names()
+  pivot_longer(
+    pulse_df, 
+    bdi_score_bl:bdi_score_12m,
+    names_to = "visit", 
+    values_to = "bdi"
+    ) %>% 
+    relocate(id, visit) %>% 
+    mutate(visit = recode(visit, "bdi_score_bl" = "bdi_score_00m"),
+    visit = factor(visit))
+```
+
+
+
+
+
